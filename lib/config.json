@@ -1,0 +1,25 @@
+{
+	"launch-phases": [
+		"prep",
+		"server",
+		"validate",
+		"monitor",
+		"watch"
+	],
+	"launch-restart-phases": [
+		"server",
+		"validate",
+		"monitor"
+	],
+
+	"build-phases": [
+		"clean",
+		"prep",
+		"install",
+		"validate",
+		"libraries",
+		"prebuild",
+		"build",
+		"post"
+	]
+}
