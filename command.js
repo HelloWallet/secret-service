@@ -31,7 +31,11 @@ var gulpRunner = function(err, runCmd) {
         gutil.log("Task ended " + name);
     });
 
-    runSequence.apply(undefined, runCmd);
+    if (typeof runCmd === "array") {
+        runSequence.apply(undefined, runCmd);
+    } else {
+        runSequence(runCmd);
+    }
 };
 
 program
