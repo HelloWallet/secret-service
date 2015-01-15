@@ -60,13 +60,13 @@ ss modules check
 Most of the specialized commands above really just kick off gulp tasks in a more pre-defined way, but you can start individual gulp tasks using:
 
 ```
-ss app {{command}}
+ss app {{commands...}}
 ```
 
-To see a list of available tasks, just do:
+To see a list of available tasks and any associated help with the task, just do:
 
 ```
-ss app list
+ss tasks
 ```
 
 ### Project configuration
