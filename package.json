@@ -10,7 +10,6 @@
   "license": "BSD",
   "dependencies": {
     "async": "^0.9.0",
-    "chalk": "~0.5.1",
     "cli-table": "^0.3.1",
     "commander": "~2.6.0",
     "decompress-zip": "0.1.0",
@@ -44,7 +43,6 @@
   },
   "bundledDependencies": [
     "async",
-    "chalk",
     "cli-table",
     "commander",
     "decompress-zip",
@@ -55,6 +53,7 @@
     "gulp-bump",
     "gulp-debug",
     "gulp-exec",
+    "gulp-help",
     "gulp-filelog",
     "gulp-rename",
     "gulp-shell",

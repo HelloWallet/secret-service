@@ -31,9 +31,11 @@ var gulpRunner = function(err, runCmd) {
         gutil.log("Task ended " + name);
     });
 
+    console.log(runCmd);
+
     if (typeof runCmd === "array") {
-        runSequence.apply(undefined, runCmd);
-    } else {
+        runSequence.apply(this, runCmd);
+    } else if (typeof runCmd === "string") {
         runSequence(runCmd);
     }
 };
@@ -55,6 +57,14 @@ program.command("launch")
     .option("-w, --worker-count <number>", "Number of workers to launch")
     .action(function(cmd, opts) {
         require('./lib/launch')(cmd, opts, gulpRunner);
+    })
+    .on('--help', function() {
+        console.log('  Sub-commands:');
+        console.log();
+        console.log('    start - Starts server instances');
+        console.log('    stop - Stops server instances');
+        console.log('    redeploy - Hot stop of old version and start of newest version');
+        console.log();
     });
 
 program.command("modules <cmd>")
