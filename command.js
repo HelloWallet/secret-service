@@ -31,9 +31,7 @@ var gulpRunner = function(err, runCmd) {
         gutil.log("Task ended " + name);
     });
 
-    console.log(runCmd);
-
-    if (typeof runCmd === "array") {
+    if (Array.isArray(runCmd)) {
         runSequence.apply(this, runCmd);
     } else if (typeof runCmd === "string") {
         runSequence(runCmd);
@@ -119,7 +117,7 @@ program.command("app <task> [otherTasks...]")
     });
 
 program.command("tasks")
-    .description("List help on available tasks")
+    .description("List help on available Gulp tasks (run with 'app')")
     .action(function(cmd, opt) {
         require('./lib/tasks')(opt, gulpRunner);
     });
@@ -132,3 +130,7 @@ program.command("server <task>")
     });
 
 program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+}
