@@ -68,6 +68,9 @@ program.command("launch")
 program.command("modules <cmd>")
     .description("Manages dependencies")
     .option("-p, --package <package>", "The specific package")
+    .option("-u, --user <user>", "User for publishing")
+    .option("--password <password>", "Password for publishing")
+    .option("-e, --email <email>", "Registered e-mail for publishing")
     .action(function(cmd, opts) {
         require('./lib/modules')(cmd, opts, gulpRunner);
     })

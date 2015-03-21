@@ -33,6 +33,7 @@
     "mkdirp": "^0.5.0",
     "multi-glob": "^0.4.0",
     "naught": "~1.2.0",
+    "npm": "^2.7.3",
     "run-sequence": "~0.3.6",
     "scp": "0.0.3",
     "semver": "^2.3.1",
