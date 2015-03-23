@@ -12,6 +12,10 @@ var _ = require("lodash"),
     pjson = require("./package.json"),
     help = require("gulp-help");
 
+
+// add sequenced functionality to gulp
+gulp.runSequence = runSequence;
+
 help(gulp, { 
     description: "This task is what makes the 'tasks' command work"
 });
