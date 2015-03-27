@@ -27,7 +27,11 @@ var gulpRunner = function(err, runCmd) {
     }
 
     gulp.on("task_err", function(e) {
-        gutil.log(e.err);
+        if (e.err && e.err.stack) {
+            gutil.log(e.err.stack);
+        } else {
+            gutil.log(e.err);
+        }
         process.exit(1);
     });
 
