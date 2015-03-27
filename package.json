@@ -44,7 +44,7 @@
     "through2": "^0.4.1"
   },
   "bin": {
-    "ss": "./command.js"
+    "secret-service": "./command.js"
   },
   "bundledDependencies": [
     "async",
