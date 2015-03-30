@@ -26,7 +26,7 @@ Building an application works by loading the capitol.json file from the project,
 It can include configruations for any number of builds, but the common setup is a dev vs. prod build.
 
 ```
-ss build {{dev/prod}}
+secret-service build {{dev/prod}}
 ```
 
 ### Using packaged dependendencies
@@ -35,7 +35,7 @@ ss build {{dev/prod}}
 
 To install a new dependency, use npm --save/--save-dev like usual, but after installing, use the following command to package the file:
 ```
-ss modules package
+secret-service modules package
 ```
 
 This will create a .ZIP file in the modules/ directory of your package.
@@ -44,12 +44,12 @@ This will create a .ZIP file in the modules/ directory of your package.
 
 To explode a module, use the following command to check your compare your current node_modules files to the module dependencies:
 ```
-ss modules explode
+secret-service modules explode
 ```
 
 And to just run the check sequence:
 ```
-ss modules check
+secret-service modules check
 ```
 
 
@@ -60,13 +60,13 @@ ss modules check
 Most of the specialized commands above really just kick off gulp tasks in a more pre-defined way, but you can start individual gulp tasks using:
 
 ```
-ss app {{commands...}}
+secret-service app {{commands...}}
 ```
 
 To see a list of available tasks and any associated help with the task, just do:
 
 ```
-ss tasks
+secret-service tasks
 ```
 
 ### Project configuration
