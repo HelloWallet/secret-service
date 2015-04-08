@@ -71,6 +71,7 @@
     "mkdirp",
     "multi-glob",
     "naught",
+    "npm",
     "run-sequence",
     "scp",
     "semver",
