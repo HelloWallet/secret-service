@@ -41,7 +41,8 @@
     "run-sequence": "~0.3.6",
     "scp": "0.0.3",
     "semver": "^2.3.1",
-    "through2": "^0.4.1"
+    "through2": "^0.4.1",
+    "unzip": "^0.1.11"
   },
   "bin": {
     "secret-service": "./command.js"
@@ -75,6 +76,7 @@
     "run-sequence",
     "scp",
     "semver",
-    "through2"
+    "through2",
+    "unzip"
   ]
 }
