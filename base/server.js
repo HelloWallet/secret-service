@@ -1,7 +1,14 @@
-var capitol = require("capitol"),
+require("capitol-core").init({
+    Types: require("capitol-types")
+});
+
+var capitol = require("capitol-core"),
+    logger = capitol.logger.getLogger(__filename),
     express = capitol.express,
-    config = capitol.config;
+    config = capitol.config,
+    sessionStore = require("./server/util/session").getSessionStore();
 
-capitol.config.load("./capitol.json");
+var app = capitol.Locomotive.createServer({
+});
 
-capitol.Locomotive.createServer({});
+module.exports = app;

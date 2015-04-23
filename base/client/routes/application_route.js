@@ -1,6 +1,6 @@
 "use strict";
 
-var Ember = require("ember");
+var Ember = require("capitol-dome").Ember;
 
 var ApplicationRoute = Ember.Route.extend({
 

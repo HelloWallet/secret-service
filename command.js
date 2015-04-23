@@ -6,45 +6,9 @@
 var _ = require("lodash"),
     program = require("commander"),
     path = require("path"),
-    gulp = require("./lib/gulp"),
-    runSequence = require("run-sequence").use(gulp),
-    gutil = require("gulp-util"),
-    pjson = require("./package.json"),
-    help = require("gulp-help");
+    gulpRunner = require("./lib/gulp_runner"),
+    pjson = require("./package.json");
 
-
-// add sequenced functionality to gulp
-gulp.runSequence = runSequence;
-
-help(gulp, { 
-    description: "This task is what makes the 'tasks' command work"
-});
-
-var gulpRunner = function(err, runCmd) {
-    if (err) {
-        gutil.log(err);
-        return;
-    }
-
-    gulp.on("task_err", function(e) {
-        if (e.err && e.err.stack) {
-            gutil.log(e.err.stack);
-        } else {
-            gutil.log(e.err);
-        }
-        process.exit(1);
-    });
-
-    gulp.on("task_end", function(name) {
-        gutil.log("Task ended " + name);
-    });
-
-    if (Array.isArray(runCmd)) {
-        runSequence.apply(this, runCmd);
-    } else if (typeof runCmd === "string") {
-        runSequence(runCmd);
-    }
-};
 
 program
     .version(pjson.version)
@@ -104,7 +68,7 @@ program.command("package")
         require('./lib/package')(opts, gulpRunner);
     });
 
-program.command("init")
+program.command("init <name>")
     .description("Create an app scaffold")
     .action(function(dest) {
         require('./lib/init')(dest, gulpRunner);
@@ -116,8 +80,15 @@ program.command("build [target]")
     .option("-s, --skip-modules", "Skip extracting dependent modules")
     .option("-c, --clean-modules", "Clean node_modules before exploding")
     .action(function(cmd, opt) {
-        require('./lib/app')(true, cmd, opt, gulpRunner);
+        require('./lib/build')(cmd, opt, gulpRunner);
     });
+
+program.command("test [target]")
+    .description("Test the application")
+    .option("-l, --list", "List available targets")
+    .action(function(cmd, opt) {
+        require('./lib/test')(cmd, opt, gulpRunner);
+    });    
 
 program.command("app <task> [otherTasks...]")
     .description("Run ad-hoc gulp tasks defined in your project (use \"ss tasks\" to see list)")
@@ -126,7 +97,7 @@ program.command("app <task> [otherTasks...]")
         var cmds = [[cmd]].concat(otherTasks.map(function(t) {
             return [t];
         }));
-        require('./lib/app')(false, cmds, opt, gulpRunner);
+        require('./lib/app')(cmds, opt, gulpRunner);
     });
 
 program.command("tasks")
@@ -135,7 +106,7 @@ program.command("tasks")
         require('./lib/tasks')(opt, gulpRunner);
     });
 
-program.command("server <task>")
+program.command("server [task]")
     .description("Manage development server")
     .option("-l, --list", "List available commands")
     .action(function(cmd, opt) {

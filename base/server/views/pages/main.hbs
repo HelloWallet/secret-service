@@ -1,0 +1,18 @@
+<script id="dataBlock-env" type="application/json">
+{
+	"region": "{{region}}",
+    "clientLogLevel": "{{clientLogLevel}}",
+    "trackingEnabled": true
+}
+</script>
+<script id="dataBlock-participantData" type="application/json">
+{{{participantJson}}}
+</script>
+<script id="dataBlock-configData" type="application/json">
+{{{configJson}}}
+</script>
+{{#if useMin}}
+<script src="/js/loader.min.js"></script>
+{{else}}
+<script src="/js/loader.js"></script>
+{{/if}}
