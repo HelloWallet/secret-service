@@ -7,8 +7,8 @@ var _ = require("lodash"),
     program = require("commander"),
     path = require("path"),
     gulpRunner = require("./lib/gulp_runner"),
+    notify = require("./lib/monitor_notifications"),
     pjson = require("./package.json");
-
 
 program
     .version(pjson.version)
@@ -80,6 +80,7 @@ program.command("build [target]")
     .option("-s, --skip-modules", "Skip extracting dependent modules")
     .option("-c, --clean-modules", "Clean node_modules before exploding")
     .action(function(cmd, opt) {
+        notify();
         require('./lib/build')(cmd, opt, gulpRunner);
     });
 
@@ -87,6 +88,7 @@ program.command("test [target]")
     .description("Test the application")
     .option("-l, --list", "List available targets")
     .action(function(cmd, opt) {
+        notify();
         require('./lib/test')(cmd, opt, gulpRunner);
     });    
 
@@ -94,6 +96,7 @@ program.command("app <task> [otherTasks...]")
     .description("Run ad-hoc gulp tasks defined in your project (use \"ss tasks\" to see list)")
     .option("--debug-brk", "Start server and wait in debug mode (if supported by task)")
     .action(function(cmd, otherTasks, opt) {
+        notify();
         var cmds = [[cmd]].concat(otherTasks.map(function(t) {
             return [t];
         }));
@@ -110,6 +113,7 @@ program.command("server [task]")
     .description("Manage development server")
     .option("-l, --list", "List available commands")
     .action(function(cmd, opt) {
+        notify();
         require('./lib/server')(cmd, opt, gulpRunner);
     });
 

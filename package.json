@@ -1,6 +1,6 @@
 {
   "name": "secret-service",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -36,6 +36,7 @@
     "mkdirp": "^0.5.0",
     "multi-glob": "^0.4.0",
     "naught": "~1.5.0",
+    "node-notifier": "^4.2.1",
     "npm": "^2.8.3",
     "run-sequence": "~1.1.0",
     "scp": "0.0.3",
@@ -70,6 +71,7 @@
     "mkdirp",
     "multi-glob",
     "naught",
+    "node-notifier",
     "npm",
     "run-sequence",
     "scp",

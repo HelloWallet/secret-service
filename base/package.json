@@ -9,18 +9,15 @@
     "packagedDependencies": true,
     "privateRepository": "http://hwcapdevwb8003.morningstar.com",
     "dependencies": {
-        "capitol-core": "0.5.0-7",
+        "capitol-core": "0.5.0-10",
         "capitol-types": "0.5.0-2",
         "connect-memcached": "0.1.0",
-        "debug": "^2.1.3",
-        "hoops": "0.2.1",
-        "isotope-layout": "2.1.0",
         "press-corp": "0.1.4"
     },
     "devDependencies": {
         "capitol-dome": "0.5.0-15",
-        "capitol-core-dev": "0.5.0-1",
-        "capitol-dome-dev": "0.5.0-13"
+        "capitol-core-dev": "0.5.0-3",
+        "capitol-dome-dev": "0.5.0-14"
     },
     "privateDeps": [
         "capitol-core",
