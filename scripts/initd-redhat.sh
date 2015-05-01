@@ -18,6 +18,12 @@ start() {
     echo -n "Starting $prog: "
     cd $APP_PATH 
     export NODE_ENV=production
+    if [ -f ./env ]
+    then
+        while read line; do
+            export $line
+        done < ./env
+    fi
     daemon --user="nodejs" $SS_EXEC launch start
     touch /var/lock/subsys/$prog
     RETVAL=$?
@@ -27,7 +33,7 @@ start() {
 }
 
 stop() {
-    echo -n "Shutting down nodejs: "
+    echo -n "Shutting down $prog: "
     cd $APP_PATH
     daemon --user="nodejs" $SS_EXEC launch stop
     RETVAL=$?
@@ -37,8 +43,15 @@ stop() {
 }
 
 restart() {
-    echo -n "Shutting down nodejs: "
+    echo -n "Redeploying $prog: "
     cd $APP_PATH
+    export NODE_ENV=production
+    if [ -f ./env ]
+    then
+        while read line; do
+            export $line
+        done < ./env
+    fi
     daemon --user="nodejs" $SS_EXEC launch redeploy
     RETVAL=$?
     [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
