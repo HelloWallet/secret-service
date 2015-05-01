@@ -25,6 +25,8 @@ program.command("launch")
     .description("Launches the newest deployed app")
     .option("-d, --destination <path>", "Deploy destination directory")
     .option("-w, --worker-count <number>", "Number of workers to launch")
+    .option("-n, --name <name>", "Specify an app name")
+    .option("-e, --env <env>", "Environment type (currently only 'redhat')")
     .action(function(cmd, opts) {
         require('./lib/launch')(cmd, opts, gulpRunner);
     })
