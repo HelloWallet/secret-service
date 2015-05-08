@@ -26,5 +26,12 @@
 		"prep",
 		"validate",
 		"post"
+	],
+
+	"configFileGlob": [
+		"node_modules/*/capitol.json",
+		"node_modules/@*/*/capitol.json",
+		"capitol.json",
+		".capitol.json"
 	]
 }
