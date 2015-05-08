@@ -41,6 +41,7 @@
     "run-sequence": "~1.1.0",
     "scp": "0.0.3",
     "semver": "^4.3.3",
+    "set-terminal-title": "^1.0.1",
     "through2": "^0.6.5",
     "unzip": "^0.1.11"
   },
