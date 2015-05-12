@@ -20,7 +20,8 @@
 		"libraries",
 		"prebuild",
 		"build",
-		"post"
+		"post",
+		"package"
 	],
 	"test-phases": [
 		"prep",
