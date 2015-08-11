@@ -86,6 +86,12 @@ program.command("build [target]")
         require('./lib/build')(cmd, opt, gulpRunner);
     });
 
+program.command("phases")
+    .description("List the available phase-based builds")
+    .action(function(opts) {
+        require('./lib/phases')(opts, gulpRunner);
+    });
+
 program.command("test [target]")
     .description("Test the application")
     .option("-l, --list", "List available targets")
@@ -95,7 +101,19 @@ program.command("test [target]")
     });    
 
 program.command("app <task> [otherTasks...]")
-    .description("Run ad-hoc gulp tasks defined in your project (use \"ss tasks\" to see list)")
+    .description("[DEPRECATED - USE 'run']")
+    .option("--debug-brk", "Start server and wait in debug mode (if supported by task)")
+    .action(function(cmd, otherTasks, opt) {
+        console.log(require("gulp-util").colors.red("'app' deprecated - use 'run'"));
+        notify();
+        var cmds = [[cmd]].concat(otherTasks.map(function(t) {
+            return [t];
+        }));
+        require('./lib/app')(cmds, opt, gulpRunner);
+    });
+
+program.command("run <task> [otherTasks...]")
+    .description("Run ad-hoc gulp tasks defined in your project (use \"ss tasks\" to see list) [replaces 'app' command]")
     .option("--debug-brk", "Start server and wait in debug mode (if supported by task)")
     .action(function(cmd, otherTasks, opt) {
         notify();
@@ -117,6 +135,12 @@ program.command("server [task]")
     .action(function(cmd, opt) {
         notify();
         require('./lib/server')(cmd, opt, gulpRunner);
+    });
+
+program.command("help", {isDefault: true})
+    .action(function(cmd) {
+        console.log("Didn't understand that command... here is the help.");
+        program.outputHelp();
     });
 
 program.parse(process.argv);
