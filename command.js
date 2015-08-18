@@ -86,12 +86,6 @@ program.command("build [target]")
         require('./lib/build')(cmd, opt, gulpRunner);
     });
 
-program.command("phases")
-    .description("List the available phase-based builds")
-    .action(function(opts) {
-        require('./lib/phases')(opts, gulpRunner);
-    });
-
 program.command("test [target]")
     .description("Test the application")
     .option("-l, --list", "List available targets")
@@ -123,18 +117,19 @@ program.command("run <task> [otherTasks...]")
         require('./lib/app')(cmds, opt, gulpRunner);
     });
 
-program.command("tasks")
-    .description("List help on available Gulp tasks (run with 'app')")
-    .action(function(cmd, opt) {
-        require('./lib/tasks')(opt, gulpRunner);
-    });
-
 program.command("server [task]")
     .description("Manage development server")
     .option("-l, --list", "List available commands")
     .action(function(cmd, opt) {
         notify();
         require('./lib/server')(cmd, opt, gulpRunner);
+    });
+
+program.command("info [cmd]")
+    .description("'tasks' - List help on available Gulp tasks (run with 'run')")
+    .description("'phases' - List the available phase-based builds")
+    .action(function(cmd, opt) {
+        require('./lib/info')(cmd, opt, gulpRunner);
     });
 
 program.command("help", {isDefault: true})

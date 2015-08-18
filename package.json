@@ -1,6 +1,6 @@
 {
   "name": "secret-service",
-  "version": "0.8.1",
+  "version": "0.8.3",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -14,6 +14,7 @@
   "license": "BSD",
   "dependencies": {
     "async": "^1.0.0",
+    "bluebird": "^2.9.34",
     "cli-table": "^0.3.1",
     "commander": "~2.8.1",
     "debug": "^2.2.0",
@@ -37,7 +38,7 @@
     "multi-glob": "^0.4.0",
     "naught": "git+https://www.github.com/hellowallet/naught.git",
     "node-notifier": "^4.2.1",
-    "npm": "^1.4.28",
+    "npm": "^2.13.4",
     "run-sequence": "~1.1.0",
     "scp": "0.0.3",
     "semver": "^4.3.4",
@@ -47,37 +48,5 @@
   },
   "bin": {
     "secret-service": "./command.js"
-  },
-  "bundledDependencies": [
-    "async",
-    "cli-table",
-    "commander",
-    "debug",
-    "del",
-    "event-stream",
-    "glob",
-    "gulp",
-    "gulp-bump",
-    "gulp-debug",
-    "gulp-exec",
-    "gulp-help",
-    "gulp-rename",
-    "gulp-spawn",
-    "gulp-symlink",
-    "gulp-template",
-    "gulp-util",
-    "gulp-zip",
-    "lodash",
-    "map-stream",
-    "mkdirp",
-    "multi-glob",
-    "naught",
-    "node-notifier",
-    "npm",
-    "run-sequence",
-    "scp",
-    "semver",
-    "through2",
-    "unzip"
-  ]
+  }
 }
