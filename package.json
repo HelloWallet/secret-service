@@ -38,7 +38,7 @@
     "multi-glob": "^0.4.0",
     "naught": "git+https://www.github.com/hellowallet/naught.git",
     "node-notifier": "^4.2.1",
-    "npm": "^2.13.4",
+    "npm": "2.14.4",
     "run-sequence": "~1.1.0",
     "scp": "0.0.3",
     "semver": "^4.3.4",
