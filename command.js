@@ -21,6 +21,19 @@ program.command("deploy")
         require('./lib/deploy')(opts, gulpRunner);
     });
 
+program.command("udeploy")
+    .description("Call uDeploy service and start deployment process")
+    .option("-a, --application <name>", "Application name")
+    .option("-p, --process <name>", "Process name")
+    .option("-e, --environment <name>", "Environment name")
+    .option("-c, --components <array>", "Artifact components as array")
+    .option("-v, --versions <array>", "Artifact versions as array; optional")
+    .option("-u, --username <name>", "uDeploy publisher username")
+    .option("-w, --password <name>", "uDeploy publisher password")
+    .action(function(opts) {
+        require('./lib/udeploy')(opts, gulpRunner);
+    });
+
 program.command("launch")
     .description("Launches the newest deployed app")
     .option("-d, --destination <path>", "Deploy destination directory")
