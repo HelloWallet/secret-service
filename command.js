@@ -23,13 +23,14 @@ program.command("deploy")
 
 program.command("udeploy")
     .description("Call uDeploy service and start deployment process")
+    .option("-s, --server <url>", "UDeploy Server API URL")
     .option("-a, --application <name>", "Application name")
-    .option("-p, --process <name>", "Process name")
+    .option("-k, --process <name>", "Process name")
     .option("-e, --environment <name>", "Environment name")
-    .option("-c, --components <array>", "Artifact components as array")
-    .option("-v, --versions <array>", "Artifact versions as array; optional")
+    .option("-c, --components <list>", "Artifact components as list")
+    .option("-v, --versions <list>", "Artifact versions as list; optional")
     .option("-u, --username <name>", "uDeploy publisher username")
-    .option("-w, --password <name>", "uDeploy publisher password")
+    .option("-p, --password <name>", "uDeploy publisher password")
     .action(function(opts) {
         require('./lib/udeploy')(opts, gulpRunner);
     });
