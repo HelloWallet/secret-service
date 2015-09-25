@@ -1,6 +1,6 @@
 {
   "name": "secret-service",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -39,6 +39,7 @@
     "naught": "git+https://www.github.com/hellowallet/naught.git",
     "node-notifier": "^4.2.1",
     "npm": "2.14.4",
+    "request": "^2.63.0",
     "run-sequence": "~1.1.0",
     "scp": "0.0.3",
     "semver": "^4.3.4",
