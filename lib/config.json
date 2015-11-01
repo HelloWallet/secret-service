@@ -1,4 +1,6 @@
 {
+	"initProjectUrl": "https://github.com/HelloWallet/capitol-sample-project.git",
+
 	"launch-phases": [
 		"prep",
 		"server",
