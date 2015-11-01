@@ -1,0 +1,12 @@
+{
+  "node": true,
+  "devel": true,
+  "curly": true,
+  "freeze": true,
+  "latedef": true,
+  "nonew": true,
+  "undef": true,
+  "plusplus": false,
+  "unused": "vars",
+  "strict": true
+}
