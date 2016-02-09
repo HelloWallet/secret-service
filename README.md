@@ -13,8 +13,8 @@ Centralizes developer build, deployment packaging, and server process management
 
 - Deployment
 	- Provides module packaging for deployment security
-	- Generates application packages
-	- Automates target server extraction`
+	- Automates target server extraction
+	- Automates uDeploy deployments
 	- Automates hot-launch sequence using naught
 
 ## Usage
@@ -29,29 +29,13 @@ It can include configruations for any number of builds, but the common setup is 
 secret-service build {{dev/prod}}
 ```
 
-### Using packaged dependendencies
+### Starting a local server
 
-#### Installing a new depedency
+To start your local development server use:
 
-To install a new dependency, use npm --save/--save-dev like usual, but after installing, use the following command to package the file:
 ```
-secret-service modules package
+secret-service server local
 ```
-
-This will create a .ZIP file in the modules/ directory of your package.
-
-#### Installing dependencies from modules
-
-To explode a module, use the following command to check your compare your current node_modules files to the module dependencies:
-```
-secret-service modules explode
-```
-
-And to just run the check sequence:
-```
-secret-service modules check
-```
-
 
 ### Other commands
 
@@ -60,13 +44,32 @@ secret-service modules check
 Most of the specialized commands above really just kick off gulp tasks in a more pre-defined way, but you can start individual gulp tasks using:
 
 ```
-secret-service app {{commands...}}
+secret-service run {{commands...}}
 ```
 
 To see a list of available tasks and any associated help with the task, just do:
 
 ```
 secret-service tasks
+```
+
+To see a list of segment level available tasks and any associated help with the task, just do:
+
+```
+secret-service info tasks
+```
+
+For uDeploy deployments:
+
+```
+secret-service udeploy
+	--application <uDeployAppName>
+	--process <udeploy Process>
+	--server https://udeploy.morningstar.com
+	--versions <listOfVersions optional>
+	--components <listOfComponents>
+	--environment <environment defaults to DEV>
+	--username <Udeploy username> --password <password>
 ```
 
 ### Project configuration
