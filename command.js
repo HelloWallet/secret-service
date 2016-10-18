@@ -27,6 +27,7 @@ program.command("udeploy")
     .option("-a, --application <name>", "Application name")
     .option("-k, --process <name>", "Process name")
     .option("-e, --environment <name>", "Environment name")
+    .option("-r, --retry <number>", "Number of attempts to retry if uDeploy has finished")
     .option("-c, --components <list>", "Artifact components as list")
     .option("-v, --versions <list>", "Artifact versions as list; optional")
     .option("-u, --username <name>", "uDeploy publisher username")
@@ -106,7 +107,7 @@ program.command("test [target]")
     .action(function(cmd, opt) {
         notify();
         require('./lib/test')(cmd, opt, gulpRunner);
-    });    
+    });
 
 program.command("app <task> [otherTasks...]")
     .description("[DEPRECATED - USE 'run']")
