@@ -1,6 +1,6 @@
 {
   "name": "secret-service",
-  "version": "0.9.7",
+  "version": "1.0.0-0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -48,6 +48,7 @@
     "unzip": "^0.1.11"
   },
   "bin": {
-    "secret-service": "./command.js"
+    "secret-service": "./command.js",
+    "capitol": "./command.js"
   }
 }

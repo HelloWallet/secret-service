@@ -106,7 +106,7 @@ program.command("test [target]")
     .action(function(cmd, opt) {
         notify();
         require('./lib/test')(cmd, opt, gulpRunner);
-    });    
+    });
 
 program.command("app <task> [otherTasks...]")
     .description("[DEPRECATED - USE 'run']")
@@ -152,6 +152,7 @@ program.command("help", {isDefault: true})
         program.outputHelp();
     });
 
+console.log("Capitol CLI v" + pjson.version);
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
