@@ -66,6 +66,7 @@ secret-service udeploy
 	--application <uDeployAppName>
 	--process <udeploy Process>
 	--server https://udeploy.morningstar.com
+    --retry <number of retries to check if uDeploy success. Defaults to 50.>
 	--versions <listOfVersions optional>
 	--components <listOfComponents>
 	--environment <environment defaults to DEV>
